@@ -86,6 +86,10 @@ resource "google_compute_instance" "gce" {
   }
 }
 
-
+// creating new I am Member with spanner_role
+resource "google_project_iam_member" "spanner_role" {
+  role   = "roles/spanner.viewer"
+  member = "serviceAccount:${google_service_account.gce_sa.email}"
+}
 
 data "google_client_config" "google_client" {}
