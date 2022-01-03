@@ -38,12 +38,15 @@ jobs:
         run: |
           chmod +x "${GITHUB_WORKSPACE}/.github/workflows/tf_init.sh"
           "${GITHUB_WORKSPACE}/.github/workflows/tf_init.sh"
+
           chmod +x "${GITHUB_WORKSPACE}/.github/workflows/tf_fmt.sh"
           "${GITHUB_WORKSPACE}/.github/workflows/tf_fmt.sh"
+
           chmod +x "${GITHUB_WORKSPACE}/.github/workflows/tf_plan_check.sh"
           "${GITHUB_WORKSPACE}/.github/workflows/tf_plan_check.sh"
           
           terraform plan -out "tf_plan" -input=false
+
       - name: Upload TF Plan
         uses: actions/upload-artifact@v2
         with:
@@ -85,3 +88,9 @@ jobs:
         "${GITHUB_WORKSPACE}/.github/workflows/tf_init.sh"
         terraform show "tf_plan"
         terraform apply "tf_plan"
+
+
+
+
+    
+

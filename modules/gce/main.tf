@@ -24,7 +24,6 @@ resource "google_project_service" "networking_api" {
 resource "google_service_account" "gce_sa" {
   account_id   = local.sa_id
   display_name = local.sa_id
-
   timeouts {
     create = var.sa_timeout
   }

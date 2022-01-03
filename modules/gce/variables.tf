@@ -29,7 +29,7 @@ variable "zone" {
 
 variable "instance_machine_type" {
   type        = string
-  default     = "e2-micro"
+  default     = "e2-medium"
   description = "The type of GCE VM instance for each nodes."
 }
 
@@ -38,6 +38,7 @@ variable "network_tags" {
   default     = []
   description = "A list of network tags to attach to the instance."
 }
+
 
 variable "boot_disk_size" {
   type        = number
