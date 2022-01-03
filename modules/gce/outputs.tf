@@ -10,7 +10,7 @@ output "id" {
 
 output "instance_id" {
   value       = google_compute_instance.gce.instance_id
-  description = "The server-assigned unique identifier of this instance. Example: 4567719474035761998"
+  description = "The server-assigned unique identifier of this instance. ex: 4567719474035761998"
 }
 
 output "self_link" {
