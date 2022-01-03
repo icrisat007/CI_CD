@@ -21,16 +21,15 @@ resource "google_project_service" "networking_api" {
   disable_on_destroy = false
 }
 
-// creating new Service Account
 resource "google_service_account" "gce_sa" {
   account_id   = local.sa_id
   display_name = local.sa_id
+
   timeouts {
     create = var.sa_timeout
   }
 }
 
-// creating compute engine static IP Address
 resource "google_compute_address" "gce_static_ip" {
   name       = local.name_static_vm_ip
   region     = local.region
@@ -42,7 +41,6 @@ resource "google_compute_address" "gce_static_ip" {
   }
 }
 
-// creating compute engine Engine
 resource "google_compute_instance" "gce" {
   project      = var.gcp_project_id
   name         = local.instance_name
@@ -86,6 +84,9 @@ resource "google_compute_instance" "gce" {
   }
 }
 
-
+resource "google_project_iam_member" "spanner_role" {
+  role   = "roles/spanner.viewer"
+  member = "serviceAccount:${google_service_account.gce_sa.email}"
+}
 
 data "google_client_config" "google_client" {}
