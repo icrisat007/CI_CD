@@ -1,8 +1,8 @@
-# exit if any of the commands fails
+# exit if any of the commands failsdfgdfhfh
 set -o errexit
 
-# format checking of terraform
+# format checking of terraformcvgdfgdfg
 terraform fmt -recursive -check -diff
 
-# validating configurations
+# validating configurationsdfhghgfhg
 terraform validate
