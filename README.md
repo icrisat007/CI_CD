@@ -16,4 +16,3 @@ Follow Medium blog for steps: [Automating Terraform with GitHub Actions](https:/
 
 Clap and share if you find it useful.
 
-_Contributions are most welcome_
