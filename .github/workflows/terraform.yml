@@ -54,6 +54,10 @@ jobs:
   terraform_apply:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./examples
     needs: terraform
     environment:
       name: tf_apply
