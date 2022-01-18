@@ -2,7 +2,7 @@
 
 variable "gcp_project_id" {
   type        = string
-  default     = "custom-valve-332208"
+  default     = "icrisat-332507"
   description = "Id of the GCP project"
 }
 
