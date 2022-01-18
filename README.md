@@ -14,5 +14,3 @@ Follow Medium blog for steps: [Automating Terraform with GitHub Actions](https:/
 * Manual Approval before applying terraform apply stage.
 
 
-
-vdsf
