@@ -8,6 +8,8 @@ on:
     paths:
     - 'examples/**'
 
+  pull_request:
+
 concurrency: 
   group: ${{ github.action == 'terraform-automation' }}
   cancel-in-progress: true
