@@ -77,8 +77,8 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: tf_plan
-        path: ./CI_CD/examples
+        path: ./examples
 
     # Provision resources via Terraform        
     - name: Terraform Apply
-      run: terraform apply "tf_plan"
+      run: terraform apply
