@@ -1,4 +1,4 @@
-ame: terraform-automation
+name: terraform-automation
 
 on: 
   push:
