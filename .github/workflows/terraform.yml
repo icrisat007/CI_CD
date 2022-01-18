@@ -2,10 +2,10 @@ name: 'Terraform CI'
 
 on:
   push:
-#     branches:
-#     - main
+    branches:
+    - main
     paths:
-    - '../examples/**'
+    - 'examples/**'
 
   pull_request:
 
@@ -18,7 +18,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ../examples
+        working-directory: ./examples
 
     steps:
     # Checkout the repository to the GitHub Actions runner
