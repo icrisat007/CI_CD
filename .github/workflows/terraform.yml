@@ -62,7 +62,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Terraform Apply
-          if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-          run: terraform apply
-          env:
-            GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
