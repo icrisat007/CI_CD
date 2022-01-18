@@ -1,18 +1,10 @@
-name: terraform-automation
+name: 'Terraform CI'
 
 on:
   push:
-    paths:
-    - 'examples/**'
-
-concurrency:
-  group: ${{ github.action == 'terraform-automation' }}
-  cancel-in-progress: true
-
-defaults:
-  run:
-    shell: bash
-    working-directory: ./examples
+    branches:
+    - main
+  pull_request:
 
 jobs:
   terraform:
@@ -20,18 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Setup GCP Service Account
-      uses: google-github-actions/setup-gcloud@master
-      with:
-        version: 'latest'
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        export_default_credentials: true
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
