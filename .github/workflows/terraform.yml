@@ -10,27 +10,26 @@ on:
 
   pull_request:
 
-concurrency: 
-  group: ${{ github.action == 'terraform-automation' }}
-  cancel-in-progress: true
-
-defaults:
-  run:
-    shell: bash
-    working-directory: ./examples
-
 jobs:
   terraform_plan:
     name: 'Terraform Plan'
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name != 'pull_request'
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./examples
 
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
       - name: Terraform Init
         run: terraform init
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
 
       - name: Terraform Format
         run: terraform fmt -check
