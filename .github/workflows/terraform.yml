@@ -81,4 +81,4 @@ jobs:
 
     # Provision resources via Terraform        
     - name: Terraform Apply
-      run: terraform apply
+      run: terraform apply "tf_plan"
