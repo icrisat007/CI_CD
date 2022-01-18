@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./*.tf
+        working-directory: cd..
 
     steps:
     # Checkout the repository to the GitHub Actions runner
