@@ -43,7 +43,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -out=.tf-plan
+      run: terraform plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
 
@@ -62,6 +62,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: Terraform Apply
-        run: terraform apply .tf-plan
+        run: terraform apply 
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
