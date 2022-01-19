@@ -4,9 +4,10 @@ on:
   push:
     branches:
     - main
-    - icrisat007-dev1
+    - feature
+    - dev
 #    paths:
-#    - 'examples/**'
+#    - 'examples/**' ########################please change folder name as per github repo####################
 
   pull_request:
 
@@ -19,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./examples
+        working-directory: ./examples ########################please change folder name as per github repo####################
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -57,7 +58,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./examples
+        working-directory: ./examples   ########################please chnage folder name as per github repo####################
     needs: terraform
     environment:
       name: tf_apply
