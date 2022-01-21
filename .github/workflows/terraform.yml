@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./examples    ########################please chnage folder name as per github repo####################
+        working-directory: .    ########################please chnage folder name as per github repo####################
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -57,7 +57,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./examples  ########################please chnage folder name as per github repo####################
+        working-directory: .  ########################please chnage folder name as per github repo####################
     needs: terraform
     environment:
       name: tf_apply  ########################please set environment secret in github repo settings and change name accordingly####################
