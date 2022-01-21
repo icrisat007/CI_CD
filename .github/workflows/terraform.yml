@@ -3,10 +3,7 @@ name: 'Terraform CI'
 on:
   push:
     branches:
-    - main
-    - icrisat007-dev1
-#    paths:
-#    - 'examples/**'
+    - dev
 
   pull_request:
 
@@ -37,9 +34,7 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
 
-    # Checks that all Terraform configuration files adhere to a canonical format
-#    - name: Terraform Format
-#      run: terraform fmt -check
+
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
@@ -71,6 +66,7 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
 
       - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
