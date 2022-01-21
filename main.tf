@@ -1,12 +1,12 @@
-resource "random_string" "launch_id" {
-  length  = 4
-  special = false
-  upper   = false
-}
+//resource "random_string" "launch_id" {
+//  length  = 4
+//  special = false
+//  upper   = false
+//}
 
-locals {
-  suffix = format("%s-%s", "tf", random_string.launch_id.result)
-}
+//locals {
+//  suffix = format("%s-%s", "tf", random_string.launch_id.result)
+//}
 
 //module "kylo_ren" {
 //  source           = "../modules/gce"
